@@ -1,0 +1,92 @@
+sudo apt update
+sudo apt install docker.io
+sudo docker login
+docker run -p 3306:3306 --name my-mysql-container -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=emails_db -d mysql:latest
+docker container exec -it my-mysql-container bash
+mysql -u root -p
+
+
+
+mysql cmd:
+Sure, I can guide you through creating these tables in MySQL and performing a basic join. Let's start by creating the tables:
+
+1. **Create Database**:
+   First, create a database to hold these tables:
+
+   ```sql
+   CREATE DATABASE student_info;
+   USE student_info;
+   ```
+
+2. **Create Tables**:
+   Create the four tables with the specified columns:
+
+   ```sql
+   -- Table 1: stud_no, name
+   CREATE TABLE students (
+       stud_no INT PRIMARY KEY,
+       name VARCHAR(50)
+   );
+
+   -- Table 2: stud_no, state
+   CREATE TABLE student_state (
+       stud_no INT PRIMARY KEY,
+       state VARCHAR(50)
+   );
+
+   -- Table 3: state, country
+   CREATE TABLE state_country (
+       state VARCHAR(50) PRIMARY KEY,
+       country VARCHAR(50)
+   );
+
+   -- Table 4: stud_no, age
+   CREATE TABLE student_age (
+       stud_no INT PRIMARY KEY,
+       age INT
+   );
+   ```
+
+3. **Insert Data**:
+   Insert some sample data into the tables:
+
+   ```sql
+   -- Insert data into students
+   INSERT INTO students (stud_no, name) VALUES
+       (1, 'John'),
+       (2, 'Jane'),
+       (3, 'Michael');
+
+   -- Insert data into student_state
+   INSERT INTO student_state (stud_no, state) VALUES
+       (1, 'California'),
+       (2, 'Texas'),
+       (3, 'New York');
+
+   -- Insert data into state_country
+   INSERT INTO state_country (state, country) VALUES
+       ('California', 'USA'),
+       ('Texas', 'USA'),
+       ('New York', 'USA');
+
+   -- Insert data into student_age
+   INSERT INTO student_age (stud_no, age) VALUES
+       (1, 20),
+       (2, 22),
+       (3, 25);
+   ```
+
+4. **Perform Join**:
+   Now, you can perform a join across these tables. For example, let's join `students`, `student_state`, and `state_country` to get the name, state, and country for each student:
+
+   ```sql
+    SELECT s.name, ss.state, sc.country, sa.age
+    FROM students s
+    JOIN student_state ss ON s.stud_no = ss.stud_no
+    JOIN state_country sc ON ss.state = sc.state
+    JOIN student_age sa ON s.stud_no = sa.stud_no;
+   ```
+
+   This query joins the `students`, `student_state`, and `state_country` tables using the common columns (`stud_no` and `state`) to retrieve the name, state, and country for each student.
+
+Remember that these examples are simplified and might not cover all aspects of your use case. Depending on your application's needs, you might need to handle data constraints, indexes, and more complex queries.

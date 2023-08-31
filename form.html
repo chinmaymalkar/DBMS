@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./form.css">
+
+</head>
+
+<!-- <body>
+    <div class="container">
+        <div class="text">
+            Registration
+        </div>
+        <form action="submit-form" method="post">
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="stud_no" required>
+                    <div class="underline"></div>
+                    <label for="">Student No.</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="name" required>
+                    <div class="underline"></div>
+                    <label for="">Student Name</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="prn" required>
+                    <div class="underline"></div>
+                    <label for="">PRN</label>
+                </div>
+                <div class="input-data">
+                    <input type="text" name="department" required>
+                    <div class="underline"></div>
+                    <label for="">Department</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="input-data">
+                    <input type="text" name="fees" required>
+                    <br />
+                    <div class="underline"></div>
+                    <label for="">Fees</label>
+                    <br />
+                    <div class="form-row submit-btn">
+                        <div class="input-data">
+                            <div class="inner"></div>
+                            <input type="submit" value="submit">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body> -->
+<body>
+    <div id="wrapper">
+        <form action="submit-form" method="post">
+           
+            <div class="container">
+                <div class="rollnocontainer">
+                    <label for="prn"> Student Number</label>
+                    <input type="number" class="prn" name="stud_no">
+                </div>
+                <div class="namecontainer">
+                    <label for="name">Name</label>
+                    <input type="text" class="name" name="name">
+                </div>
+                <div class="rollnocontainer">
+                    <label for="prn">prn Number</label>
+                    <input type="number" class="prn" name="prn">
+                </div>
+                <div class="branchcontainer">
+                    <label for="branch">Department</label>
+                    <input type="text" class="branch" name="department">
+                </div>
+                <div class="feescontainer">
+                    <label for="fees">Fees</label>
+                    <input type="number" class="fees" name="fees">
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+   
+</body>
+
+</html>
